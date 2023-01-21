@@ -1,0 +1,53 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Editar usuario</span>
+        <div class="example-spacer"></div>
+      </mat-toolbar>
+      
+      <mat-card>
+        <mat-card-content style="margin-top: 10px;">
+        <form [formGroup]="formu" (ngSubmit)="completeEdit()">
+
+            <mat-grid-list cols="4" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>USUARIO</mat-label>
+                        <input matInput formControlName="usuario">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="5" >
+                    <img src="./assets/img/programmer.png" alt=""style="width:250px">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>NOMBRE</mat-label>
+                        <input matInput formControlName="nombre">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>APELLIDO</mat-label>
+                        <input matInput formControlName="apellido">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+<mat-form-field class="ancho">
+  <mat-label>Sexo</mat-label>
+  <mat-select formControlName="sexo">
+    <mat-option *ngFor="let item of sexo" [value]="item" >
+      {{item}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <button type="submit" [disabled]="formu.invalid"  mat-raised-button color="primary">Aceptar</button>
+                    <button  routerLink="/dashboard/usuarios" mat-raised-button style="margin: 10px;">Volver</button>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+
+        </form>
+        
+        </mat-card-content>
+      </mat-card>

@@ -1,6 +1,11 @@
     <mat-toolbar>
       <span>Usuarios</span>
+
+      <div class="example-spacer"></div>
+      <button mat-button color="primary" routerLink="/dashboard/crear-usuario">AGREGAR</button>
+
     </mat-toolbar>
+    
 
     <div *ngIf="listUsuarios.length > 0">
       <mat-form-field>
@@ -44,7 +49,7 @@
             <a class="pointer " style="color: #1878b0" matTooltip="Ver usuario">
               <mat-icon>search</mat-icon>
             </a>  
-            <a class="pointer"  style="color: #1f516f;" matTooltip="editar usuario">
+            <a class="pointer"  (click)="editarUsuario(i)"  style="color: #1f516f;" matTooltip="editar usuario">
               <mat-icon>edit</mat-icon>
             </a>  
             <a class="pointer" (click)="eliminarUsuario(i)" style="color: #e15639;" matTooltip="eliminar usuario">
